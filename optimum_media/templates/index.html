@@ -1,0 +1,109 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block title %}
+    Optimum Media | Instagram Clone
+{% endblock title %}
+    
+
+{% block content %}
+
+    
+    {% for post_item in post_items %}
+        
+    
+        
+    <div class="card">
+        <div class="header">
+            <div class="media">
+                <div class="media-left">
+                    <figure class="image is-48x48">
+                        <img src="https://source.unsplash.com/random/96x96" alt="Placeholder image">
+                    </figure>
+                </div>
+                <div class="media-content">
+                    <p class="title is-4">John Smith</p>
+                    <p class="subtitle is-6">@{{ post_item.user.username }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="card-image">
+            <figure class="image is-4by3">
+               <a href="{{ post_item.get_absolute_url }}"> <img src="{{ post_item.picture.url }}" alt="Placeholder image"></a>
+            </figure>
+        </div>
+        <div class="card-content">
+            <div class="level is-mobile">
+                <div class="level-left">
+                    <div class="level-item has-text-centered">
+                        <a href="{% url 'postindexlike' post_item.id %}">
+                            
+                            {% if post_item.likes %}
+                            <i class="material-icons has-text-danger">favorite</i>
+                            {% else %}
+                            <i class="material-icons">favorite_outline</i>
+
+                    
+                            {% endif %}
+                                
+                        </a>
+                    </div>
+                    <div class="level-item has-text-centered">
+                        <div>
+                            <a href="">
+                                <i class="material-icons">chat_bubble_outline</i>
+                            </a>
+                        </div>
+                    </div>
+
+                    
+
+                </div>
+                <div>
+                    <a href="{% url 'postfavourite' post_item.id %}">
+                        {% if favourited is True %}
+                        <i class="material-icons has-text-danger" title="Remove Post From Favourite">bookmark</i>
+                
+                        {% else %}
+                        <i class="material-icons" title="Save Post">bookmark_outline</i>
+                        {% endif %}
+                    </a>
+                </div>
+            </div>
+    
+            <div class="content">
+                <p>
+                    <strong>{{ post_item.likes }} Likes</strong>
+                </p>
+                {{ post_item.caption }}
+                <p>
+                    
+                {% for tag in post_item.tags.all %}
+                <a href="{{ tag.get_absolute_url }}">#{{ tag }}</a>
+                {% endfor %}
+                </p>
+                <br>
+                <time datetime="2018-1-1">{{ post_item.posted }}</time>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="columns is-mobile">
+                <div class="column is-11">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input is-medium" type="text" placeholder="Add a comment . . .">
+                        </div>
+                    </div>
+                </div>
+                <div class="column has-text-centered">
+                    <button class="button">
+                        <i class="material-icons">more_horiz</i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+{% endblock content %}
+    

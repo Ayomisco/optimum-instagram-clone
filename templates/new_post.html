@@ -1,0 +1,98 @@
+{% load static %}
+
+
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>New Post</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/15181efa86.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/forms.css' %}">
+
+    <style>
+ 
+    </style>
+</head>
+
+<body>
+    <section class="container">
+        <div class="column is-multiline">
+            <div class="column is-8 is-offset-2 register">
+                <div class="columns">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-4"> New Post </h1>
+                        <!-- <p class="description">Get started</p> -->
+                        <!-- Form -->
+                        <form role="form" method="post" role="form" enctype="multipart/form-data" action="">
+                            {% csrf_token %}
+                            
+                            <div class="file has-name is-fullwidth" id="js-uploader">
+                                <label for="Caption" class="label" style="text-align: left;">Picture</label>
+                                <label class="file-label">
+                                        {{ form.picture }}
+                                    <span class="file-cta">
+                                        <span class="file-icon">
+                                            <i class="fas fa-upload"></i>
+                                        </span>
+                                        <span class="file-label">
+                                            Choose a file…
+                                        </span>
+                                    </span>
+                                    <span class="file-name">
+                                        No File selected
+                                    </span>
+                                </label>
+                            </div>
+
+
+                            <div class="field">
+                                <label for="Caption" class="label" style="text-align: left;"> Caption</label>
+                                <div class="control">
+                                    {{ form.caption }}
+
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label for="Caption" class="label" style="text-align: left;"> Tags</label>
+                                <div class="control">
+                                    {{ form.tags }}
+
+                                </div>
+                                <p class="help is-info" style="text-align: left;" > Note: Add tags, seperated by commas ','.</p>
+                            </div>
+
+
+                            <button class="button is-block is-primary is-fullwidth is-medium">Post</button>
+                            <br />
+                            <!-- <small><em>Don't have an account?. <a href="#">Signup</a> today.</em></small> -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-8 is-offset-2">
+                <br>
+                <nav class="level">
+
+                    <div class="level-item has-text-centered">
+                        <small class="level-item" style="color: var(--textLight)">
+                            &copy; Optimum Social Site, 2022. All Rights Reserved.
+                        </small>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <script src="{% static 'assets/js/scripts.js' %}"></script>
+</body>
+
+
+</html>

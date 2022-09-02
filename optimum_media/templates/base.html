@@ -1,0 +1,147 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+    {% block title %}
+        
+    {% endblock title %}
+         </title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <!-- Bulma Version 0.9.0-->
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/instal.css' %}">
+</head>
+
+<body>
+    <div class="navbar is-inline-flex is-transparent">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="{% url 'index' %}">
+                  <span style=" border: 4px solid red; padding: 0px 12px 0px 12px; border-radius: 50%; font-weight: 900; font-size: 1.5em; text-align: center; color: rgb(69, 0, 114); text-transform: uppercase;">P</span>
+
+                <!-- <span  style="width: 50px; height: 50px; border: 4px solid red; padding-top: 1px; padding-bottom: 1px; border-radius: 45px; font-weight: 900; font-size: 2em; text-align: center; color: rgb(69, 0, 114); text-transform: uppercase;">P</span> -->
+            {% comment %}
+                <!-- <img src="{% static 'assets/images/instagram_logo_black.jpg' %}" width="112" height="28" alt="Bulma"> -->
+            {% endcomment %}
+            </a>
+                
+            
+                
+        </div>
+        <div class="navbar-menu">
+            <div class="navbar-item">
+                <div class="control has-icons-left">
+                    <input class="input is-small has-text-centered" type="text" placeholder="search">
+                    <span class="icon is-left is-small">
+                        <i class="material-icons">search</i>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="navbar-item is-flex-touch">
+
+
+            <a href="{% url 'index' %}" class="navbar-item">
+                <span class="material-icons">
+                    home
+                </span>
+
+            </a>
+
+            <a class="navbar-item">
+                <i class="material-icons">explore</i>
+            </a>
+            <a class="navbar-item">
+                <i class="material-icons">favorite_border</i>
+            </a>
+
+            <a class="navbar-item" href="">
+                <i class="material-icons">person_outline</i>
+            </a>
+
+            <a class="navbar-item" href="{% url 'newpost' %}">
+                <i class="material-icons">add_circle</i>
+            </a>
+
+            <a class="navbar-item">
+                <span class="material-icons">
+                    notifications
+                </span>
+                <!-- Notifications -->
+            </a>
+
+            <a class="navbar-item">
+                <span class="material-icons">
+                    inbox
+                </span>
+                <!-- Inbox -->
+            </a>
+
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                    <span class="material-icons">
+                        settings
+                    </span>
+                    <!-- Settings -->
+                </a>
+
+                <div class="navbar-dropdown">
+                    <a class="navbar-item">
+                        Change Password
+                    </a>
+                    <a class="navbar-item">
+                        Contact
+                    </a>
+                    <a class="navbar-item">
+                        Report an Issue
+                    </a>
+                    <hr class="navbar-divider">
+                    <a href="{% url 'logout' %}" class="navbar-item">
+                        Log Out
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    {% block banner %}
+        
+    {% endblock banner %}
+        
+
+    <div class="columns body-columns">
+        <div class="column is-half is-offset-one-quarter">
+    
+    {% block content %}
+        
+    {% endblock content %}
+        
+
+        </div>
+    </div>
+
+
+            <footer class="footer">
+                <div class="container is-fluid">
+                    <div class="content has-text-centered">
+                        <p>
+                            <strong>Instagram Clone</strong> by
+                            <a href="https://ayomideportfolio.herokuapp.com/ayomisco">Ayomide F.A</a>. 
+                        </p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>
